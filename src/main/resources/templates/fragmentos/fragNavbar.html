@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//thymeleaf.org" xmlns:layout="http//www.ultra.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="container slide" style="background-color: #c4bfbf">
+        <header th:fragment="cabecalho">
+            <nav class="navbar bg-body-tertiary fixed-top" style="background-color: #c4bfbf">
+                <div class="container-fluid">
+                    <h4><a href="/login"><img src="/img/logoGemeos.png" alt="flexLogo" width="50x"></a></h4>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                        aria-labelledby="offcanvasNavbarLabel">
+                        <div class="offcanvas-header nav-bardiv">
+                            <h4><a href="/login"><img src="/img/logoGemeos.png" alt="flexLogo" width="100px"></a></h4>
+                            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Gemeos</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                aria-label="Close"></button>
+                        </div>
+                        <div class="offcanvas-body nav-bardiv">
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/edificios">Lista de Edificio</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/cadastrarEdificio">Cadastrar Edificio</a>
+                                </li>
+                                <li class="nav-item dropdown ">
+                                    <a class="nav-link dropdown-toggle " href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        Configurações
+                                    </a>
+                                    <ul class="dropdown-menu nav-bardiv">
+                                        <!--<li><a class="dropdown-item btn-nav" href="#">Editar Perfil</a></li>
+                                        <li><a class="dropdown-item btn-nav" href="#">Detalhes</a></li>
+                                        <li>
+                                            <hr class="dropdown-divider">
+                                        </li>--->
+                                        <li><a class="dropdown-item nav-link" href="/login">Sair</a></li>
+                                    </ul>
+                            </ul>
+                            </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    </div>
+    </header>
+    <section class="neo-section" style="background-image: url('/img/background.jpg');">
+        <div class="sombra"></div>
+        <div class="center neo-container">
+            <div class="clear"></div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

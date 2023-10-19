@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" xmlns:th="http//thymeleaf.org" xmlns:layout="http//www.ultra.net.nz/thymeleaf/layout">
+
+<head>
+    <title>Detalhes Edificio</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <header>
+        <!-- place navbar here -->
+        <div th:replace="fragmentos/fragNavbar :: cabecalho"></div>
+
+    </header>
+    <div class="container-lg">
+        <br><br><br>
+        <h5>Detalhes do Evento</h5>
+        <div class="row">
+            <p>Nome: <span th:text="${edificio.nomeEd}"></span></p>
+            <p>Local: <span th:text="${edificio.local}"></span></p>
+        </div>
+    </div>
+
+    <div th:each="edificio : ${edificios}" class="container detalhesEvento">
+        <h5>Detalhes do Evento</h5>
+        <div class="row">
+            <p>Nome: <span th:text="${edificio.nomeEd}"></span></p>
+            <p>Local: <span th:text="${edificio.local}"></span></p>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <form class="container-fluid" method="post">
+            <div class="row">
+                <div class="col input-field col s1">
+                    <input type="number" class="form-control" placeholder="xxx" value="" name="apartamento">
+                </div>
+                <div class="col input-field col s2">
+                    <input type="text" class="form-control" placeholder="Nome" value="" name="nome">
+                </div>
+                <div class="col input-field col s0">
+                    <input type="text" class="form-control" placeholder="A" value="" name="bloco">
+                </div>
+                <div class="col input-field col s1">
+                    <input type="date" class="form-control" value="" name="data">
+                </div>
+                <div class="col input-field col s1">
+                    <input type="time" class="form-control" value="" name="horas">
+                </div>
+            </div>
+            <button type="submit" class="text-center">Salvar</button>
+        </form>
+    </div>
+    <tbody>
+        <!--container é para mostrar que são da mesma tabela-->
+        <table class="container  tabelaConvidado">
+            <thead>
+                <tr>
+                    <th>Apartamento</th>
+                    <th>Nome</th>
+                    <th>Bloco</th>
+                    <th>Data</th>
+                    <th>Horas</th>
+                    <!--<th>Editar</th>-->
+                    <th>Deletar</th>
+                </tr>
+            </thead>
+
+            <tr th:each="morador : ${morador}" class="textEditarDelete">
+                <td><span th:text="${morador.apartamento}"></span></td>
+                <td><span th:text="${morador.nome}"></span></td>
+                <td><span th:text="${morador.bloco}"></span></td>
+                <td><span th:text="${morador.data}"></span></td>
+                <td><span th:text="${morador.horas}"></span></td>
+                <!--<td><a class="waves-effect waves-light btn-small"
+                        th:href="@{/editarAp/{id}(id=${morador.apartamento})}"><i class="material-icons"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg></i></a></td>-->
+                <td><a class="waves-effect waves-light btn-small"
+                        th:href="${(#mvc.url('EC#deletarMorador').arg(0,morador.apartamento)).build()}"><i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                                class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                            </svg></i></a></td>
+    </tbody>
+    </table>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+        integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>
